@@ -1,0 +1,44 @@
+{
+  "name": "error-helper",
+  "version": "1.0.3",
+  "description": "FE error mapper",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm version patch && git push & yarn build",
+    "build": "rm -rf ./dist && tsc --declaration"
+  },
+  "author": {
+    "name": "itersh",
+    "email": "plopr@ya.ru"
+  },
+  "keywords": [
+    "error",
+    "mapper",
+    "antd"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^7.3.2",
+    "@commitlint/config-conventional": "^7.3.1",
+    "@commitlint/format": "^7.3.1",
+    "@types/es6-promise": "^3.3.0",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.16.4",
+    "typescript": "^3.3.3333"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{tsx,jsx,ts,js,json,css,md}": [
+      "prettier --config .prettierrc --write src/**/*.{tsx,jsx,ts,js,json,css,md}",
+      "git add"
+    ]
+  }
+}
