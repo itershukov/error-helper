@@ -39,7 +39,7 @@ const mapErrors = (error: IAxiosError, popupConfig?: IPopupConfig, codesConfig?:
 
   const withPopupMessage = codesConfig?.withPopupMessage || defaultCodesWithPopupMessage;
   const withValidations = codesConfig?.withValidations || defaultCodesWithValidations;
-  debugger;
+
   if (withValidations.includes(status)) {
     return {
       status,
